@@ -38,9 +38,11 @@
     "classnames": "^2.2.1",
     "react": "^0.14.3",
     "react-bootstrap": "^0.28.1",
+    "react-cookie": "^0.4.2",
     "react-dom": "^0.14.3",
     "react-redux": "^4.0.0",
     "react-router-bootstrap": "^0.19.3",
-    "redux": "^3.0.4"
+    "redux": "^3.0.4",
+    "redux-thunk": "^1.0.0"
   }
 }

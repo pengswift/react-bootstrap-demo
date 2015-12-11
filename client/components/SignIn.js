@@ -10,32 +10,24 @@ import crypto from 'crypto';
 export default class SignIn extends Component {
   handleSubmit(e) {
     e.preventDefault();  
-    const email = findDOMNode(this.refs.email).value;
-    const pass = findDOMNode(this.refs.pass).value;
+    var email = findDOMNode(this.refs.email).value.trim();
+    var pass = findDOMNode(this.refs.pass).value.trim();
 
-    // 密码+ salt + pbkdf2  计算 
-    // 向服务器发送 salt + 加密后的 密钥
-
-    if (pass !== '123456') {
-        console.log('................123456');
-        return;
-    }
+    //if (pass !== '123456') {
+    //    console.log('................123456');
+    //    return;
+    //}
 
     console.log('................email:', email);
     console.log('.................pass:', pass);
 
-    //const salt = crypto.randomBytes(256);
-    //crypto.pbkdf2Sync(pass, salt, 4096, 256 
-
     let shasum = crypto.createHash('sha256');
     shasum.update('in'+pass);
-    const result = shasum.digest('hex');
+    var result = shasum.digest('hex');
     console.log("shasum result:",result)
 
     // 生成密钥 
     // 发送到服务器, 进行校验
-
-
     //localStorage.setItem('login', 'true');
   }
 

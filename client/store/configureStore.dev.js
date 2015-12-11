@@ -1,4 +1,5 @@
-import { createStore, compose } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
+import thunkMiddleware from 'redux-thunk'
 import { persistState } from 'redux-devtools';
 import rootReducer from '../reducers';
 import DevTools from '../containers/DevTools';
@@ -10,7 +11,7 @@ const finalCreateStore = compose(
             /[?&]debug_session=([^&]+)\b/
         )
     )
-)(createStore);
+)(applyMiddleware(thunkMiddleware)(createStore));
 
 
 export default function configureStore(initialState) {
